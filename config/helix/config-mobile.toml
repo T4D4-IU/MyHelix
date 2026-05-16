@@ -1,0 +1,13 @@
+theme = "catppuccin_mocha"
+
+[editor]
+line-number = "none"
+gutters = ["diagnostics"]
+bufferline = "never"
+cursorline = true
+color-modes = true
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+center = []
+right = ["diagnostics", "selections", "position"]

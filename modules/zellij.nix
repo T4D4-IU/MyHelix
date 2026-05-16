@@ -16,26 +16,17 @@ in
 {
   programs.zellij = {
     enable = true;
-    
-    # ---------------------------------------------------------
-    # PC向け（通常）設定
-    # ---------------------------------------------------------
-    settings = {
-      default_layout = "default";
-      pane_frames = true; # 枠線あり
-    };
   };
 
+  # ---------------------------------------------------------
+  # 既存の個人設定を取り込み
+  # ---------------------------------------------------------
+  xdg.configFile."zellij/config.kdl".source = ../config/zellij/config.kdl;
+
   # 必要に応じてスマホ専用のZellijレイアウトを定義（内蔵のcompactレイアウトに枠線なし設定を追加したもの）
-  xdg.configFile."zellij/layouts/compact.kdl".text = ''
-    layout {
-        pane size=1 borderless=true {
-            plugin location="zellij:compact-bar"
-        }
-        pane borderless=true
-    }
-  '';
+  xdg.configFile."zellij/layouts/compact.kdl".text = builtins.readFile ../config/zellij/layouts/compact.kdl;
 
   # 起動用スクリプトをパスに追加
   home.packages = [ mzj-mobile ];
 }
+
