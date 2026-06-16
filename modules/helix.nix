@@ -20,8 +20,8 @@ in
     # 各種言語のLSPやフォーマッターを自動インストールする場合はここに追加
     extraPackages = with pkgs; [
       nil # Nix LSP
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted
+      typescript-language-server
+      vscode-langservers-extracted
       rust-analyzer
     ];
   };
